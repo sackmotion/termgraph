@@ -193,8 +193,8 @@ def cvt_to_readable(num):
     12550 -> 12.55K
     19561100 -> 19.561M
     """
-
-    if num != 0:
+    if num >= 1 or num <= -1:
+    #if num != 0:
         neg = num < 0
         num = abs(num)
 
@@ -207,7 +207,8 @@ def cvt_to_readable(num):
         degree = UNITS[index]
 
     else:
-        newNum = 0
+        newNum = num
+        #newNum = 0
         degree = UNITS[0]
 
     return (newNum, degree)
